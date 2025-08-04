@@ -1,4 +1,19 @@
---create dim_channel=================================================
+/*
+===============================================================================
+DDL Script: Membuat Views Gold
+===============================================================================
+Tujuan Skrip:
+ Skrip ini membuat View untuk layer Gold di data warehouse. 
+    gold lauer mewakili dimensi dan tabel fakta (Star Schema)
+
+    Setiap View melakukan transformasi dan menggabungkan data dari Silver Layer
+ untuk menghasilkan data yang bersih, dan siap untuk bisnis.
+
+Penggunaan:
+    - View ini dapat digunakan secara langsung untuk analisis dan pelaporan.
+===============================================================================
+*/
+--Membuat dim_channel=================================================
 IF OBJECT_ID('gold.dim_channel', 'V') IS NOT NULL
 DROP VIEW gold.dim_channel;
 GO
@@ -43,3 +58,4 @@ LEFT JOIN gold.dim_branch b
 on b.kode_branch = t.branch_code
 LEFT JOIN gold.dim_channel c
 on c.nama_channel = t.channel
+
