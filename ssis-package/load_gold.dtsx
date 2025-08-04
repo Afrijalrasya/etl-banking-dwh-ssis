@@ -1,0 +1,273 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/3/2025 10:56:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OH1MQ57"
+  DTS:CreatorName="DESKTOP-OH1MQ57\ASUS"
+  DTS:DTSID="{ACCF3604-EB91-4E98-88E4-74A56E055161}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.1"
+  DTS:LocaleID="14345"
+  DTS:ObjectName="load_gold"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{486B1CFF-24A6-4F18-9CF9-DCF77B871C2E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DDCE1C30-409E-41F3-853C-3996894BB0ED}"
+      DTS:ObjectName="DESKTOP-OH1MQ57.transaksi_dwh.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-OH1MQ57;User ID=sa;Initial Catalog=transaksi_dwh;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package2-{DDCE1C30-409E-41F3-853C-3996894BB0ED}DESKTOP-OH1MQ57.transaksi_dwh.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr1Pa0YhFrU2jFVwRKatbrQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAzl7q9c6tdr51MXnVOwjBwA/jZK52+48gajxn9o+A+fwAAAAAOgAAAAAIAACAAAABvX+dqCJW7KCQHNDUQhRlTa/tYynWKZbzbFET+QLPhlyAAAADrgbmQ4tvador8i3Xw/VZpy2dICgCEshAo/cyK15vo6EAAAAD52z4QtNlfsep/k4JZwPjML9u7CxPV9E3d+UAyl7skQeEElyHc8YqjB10goH6Ax6rfcttXlX2tRJDACPdOaHaJ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{93708732-5AF7-4A3E-992A-29DBE41929CA}"
+      DTS:ObjectName="DESKTOP-OH1MQ57.transaksi_dwh.sa 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-OH1MQ57;User ID=sa;Initial Catalog=transaksi_dwh;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package2-{93708732-5AF7-4A3E-992A-29DBE41929CA}DESKTOP-OH1MQ57.transaksi_dwh.sa 1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr1Pa0YhFrU2jFVwRKatbrQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB/y8B0yxywWxhMnTTXGMqX7BKfIDZPOPTL9NpcxxFwMQAAAAAOgAAAAAIAACAAAACyEFIoZC9C7zrqmyzjNWOne04ljLQ39yeeDM2YUE/LEyAAAACxV3qxaZXdFrHgKG1mw5xGczWdaqfFoKeGdu+hKRoC+UAAAAAUz/hSzbun8/GkkzZHOoVju1jUOAV8GBI5V6OTFEiZ8gfdre+j0TXbV4PdOMlV9jKhGAbfKlznmAl8L5P7V/3f</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\(G)  view fact_transaksi"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{95b9b351-49e5-403f-a6e9-d2d9f091f2f1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(G)  view fact_transaksi"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{93708732-5AF7-4A3E-992A-29DBE41929CA}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('gold.fact_transaksi', 'V') IS NOT NULL&#xA;DROP VIEW gold.fact_transaksi;&#xA;GO&#xA;CREATE VIEW gold.fact_transaksi AS&#xA;select&#xA;t.id_transaksi,&#xA;t.nomor_akun,&#xA;t.tanggal_transaksi,&#xA;CAST(t.jumlah AS bigint)as jumlah,&#xA;c.id_channel,&#xA;b.id_branch&#xA;from silver.transaksi t&#xA;LEFT JOIN gold.dim_branch b&#xA;on b.kode_branch = t.branch_code&#xA;LEFT JOIN gold.dim_channel c&#xA;on c.nama_channel = t.channel" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\(G) quick report_transaksi"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{02bbac22-4f08-401b-8054-8f5ceea5edb9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(G) quick report_transaksi"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{93708732-5AF7-4A3E-992A-29DBE41929CA}"
+          SQLTask:SqlStatementSource="--create laporan_transaksi=====================================================================&#xA;IF OBJECT_ID('gold.laporan_transaksi', 'V') IS NOT NULL&#xA;DROP VIEW gold.laporan_transaksi;&#xA;GO&#xA;&#xA;CREATE VIEW gold.laporan_transaksi AS&#xA;&#xA;WITH base_query AS(&#xA;select&#xA;t.id_transaksi,&#xA;t.nomor_akun,&#xA;t.tanggal_transaksi,&#xA;CAST(t.jumlah AS bigint)as jumlah,&#xA;c.id_channel,&#xA;c.nama_channel,&#xA;b.id_branch,&#xA;b.kode_branch&#xA;from gold.fact_transaksi t&#xA;LEFT JOIN gold.dim_branch b&#xA;on b.id_branch = t.id_branch&#xA;LEFT JOIN gold.dim_channel c&#xA;on c.id_channel = t.id_channel&#xA;),&#xA;aggregate_data as(&#xA;SELECT&#xA;*,&#xA;DAY(tanggal_transaksi) as date_day,&#xA;MONTH(tanggal_transaksi) as date_month,&#xA;SUM(jumlah)over(PARTITION BY tanggal_transaksi) as total_cost_transaksi_harian,&#xA;AVG(jumlah)over(PARTITION BY tanggal_transaksi) as avg_transaksi_harian,&#xA;COUNT(id_transaksi) OVER (PARTITION by tanggal_transaksi) as freq_transaksi_harian,&#xA;COUNT(id_transaksi) OVER (partition by nama_channel)as freq_transaksi_by_channel,&#xA;COUNT(id_transaksi) OVER (PARTITION by MONTH(tanggal_transaksi)) as freq_transaksi_bulanan&#xA;FROM base_query&#xA;)&#xA;SELECT&#xA;id_transaksi,&#xA;nomor_akun,&#xA;tanggal_transaksi,&#xA;jumlah,&#xA;id_channel,&#xA;nama_channel,&#xA;id_branch,&#xA;kode_branch,&#xA;total_cost_transaksi_harian,&#xA;avg_transaksi_harian,&#xA;freq_transaksi_harian,&#xA;freq_transaksi_by_channel,&#xA;freq_transaksi_bulanan,&#xA;AVG(freq_transaksi_harian) over(partition by date_day) as avg_freq_transaksi_harian&#xA;FROM aggregate_data" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\(G) view dim_branch"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f622407b-2ca2-46e2-95db-333abf81be21}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(G) view dim_branch"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{93708732-5AF7-4A3E-992A-29DBE41929CA}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('gold.dim_branch', 'V') IS NOT NULL&#xA;DROP VIEW gold.dim_branch;&#xA;GO&#xA;CREATE VIEW gold.dim_branch AS&#xA;SELECT&#xA; ROW_NUMBER() OVER (order by branch_code) as id_branch,&#xA; branch_code as kode_branch&#xA;FROM(&#xA;SELECT DISTINCT&#xA; branch_code&#xA;FROM silver.transaksi&#xA;)t" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\(G) view dim_channel"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d7084dab-adb6-445a-aef6-8d7f2d505722}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(G) view dim_channel"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{93708732-5AF7-4A3E-992A-29DBE41929CA}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('gold.dim_channel', 'V') IS NOT NULL&#xA;DROP VIEW gold.dim_channel;&#xA;GO&#xA;CREATE VIEW gold.dim_channel AS&#xA;SELECT&#xA; ROW_NUMBER() OVER(ORDER BY nama_channel) as id_channel, --surrogate key&#xA; nama_channel&#xA;FROM(&#xA;SELECT DISTINCT&#xA; channel as nama_channel&#xA;FROM silver.transaksi&#xA;)t" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{44d2e781-77c0-4c4c-9226-00ff2cf3c83e}"
+      DTS:From="Package\(G) view dim_channel"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\(G) view dim_branch" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{edc1c93f-49e6-4d90-96bd-a6d30efd9f6c}"
+      DTS:From="Package\(G) view dim_branch"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\(G)  view fact_transaksi" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{503876c7-bf1e-4b42-abc8-9fc7cb0afd56}"
+      DTS:From="Package\(G)  view fact_transaksi"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\(G) quick report_transaksi" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\(G)  view fact_transaksi"
+          TopLeft="77.645687645688,165.111888111888" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\(G) quick report_transaksi"
+          TopLeft="71.666666666672,263.748251748251" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\(G) view dim_branch"
+          TopLeft="73.902097902098,108.727272727273" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\(G) view dim_channel"
+          TopLeft="75,57" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="75,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-1.09790209790197,51.727272727273"
+              Start="0,0"
+              End="-8.59790209790197,51.727272727273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-19.597902097902,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.597902097902,0"
+                    Point2="-23.597902097902,0"
+                    Point3="-23.597902097902,4" />
+                  <mssgle:LineSegment
+                    End="-23.597902097902,47.727272727273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.597902097902,47.727272727273"
+                    Point2="-23.597902097902,51.727272727273"
+                    Point3="-19.597902097902,51.727272727273" />
+                  <mssgle:LineSegment
+                    End="-8.59790209790197,51.727272727273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="281.902097902098,129.727272727273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.25641025641,56.384615384615"
+              Start="0,0"
+              End="-2.75641025641005,56.384615384615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,52.384615384615" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,52.384615384615"
+                    Point2="22.5,56.384615384615"
+                    Point3="18.5,56.384615384615" />
+                  <mssgle:LineSegment
+                    End="-2.75641025641005,56.384615384615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="174.40617715618,207.111888111888">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.636363636363"
+              Start="0,0"
+              End="0,49.136363636363">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.136363636363" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

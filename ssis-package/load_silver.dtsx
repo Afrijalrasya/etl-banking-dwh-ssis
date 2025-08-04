@@ -1,0 +1,147 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/3/2025 10:56:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OH1MQ57"
+  DTS:CreatorName="DESKTOP-OH1MQ57\ASUS"
+  DTS:DTSID="{B2F584D0-4BB3-4BD6-82CF-C841382590B9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.1"
+  DTS:LocaleID="14345"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E65B44F4-F3CE-4554-A8E6-99821A7ED8B5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{63ED6BCD-4FE3-4227-A9DE-6F1A0D1CDA94}"
+      DTS:ObjectName="DESKTOP-OH1MQ57.transaksi_dwh.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-OH1MQ57;User ID=sa;Initial Catalog=transaksi_dwh;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package1-{63ED6BCD-4FE3-4227-A9DE-6F1A0D1CDA94}DESKTOP-OH1MQ57.transaksi_dwh.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr1Pa0YhFrU2jFVwRKatbrQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA2a97QaxQssIvXTePMUTnbMTbxHBhAPg3Bb3jEQWj/GAAAAAAOgAAAAAIAACAAAADbN4qpkDWN3QjwJAtiwddMDJlx1HiO3m2EHnVDaCrfCyAAAAD8FmD1TuRZn73tmQQlRU8KjczQ6sWuK0udWFR3D9cWR0AAAACL3wZ9m5h8kQlhGc/w3fOmSLifP+JMGl/3iidX8og7tmaKwCcqqS3UZIWDLuEcDhcatAm/uWyY91viqJ9p+zgT</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{257D24EF-2C20-4EF5-9083-AB9ADB94C0FF}"
+      DTS:ObjectName="DESKTOP-OH1MQ57.transaksi_dwh.sa 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-OH1MQ57;User ID=sa;Initial Catalog=transaksi_dwh;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package1-{257D24EF-2C20-4EF5-9083-AB9ADB94C0FF}DESKTOP-OH1MQ57.transaksi_dwh.sa 1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr1Pa0YhFrU2jFVwRKatbrQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACOpcM0zuI+8jwTqEa8I6V3j/bQcpXgV3DmEWzdNWiQHAAAAAAOgAAAAAIAACAAAACo0PG33olT6eklFOd14vtqudU4g9Ru6bcswZORmIlRdiAAAADZHIoIFSfnpCK6T8egm1tFeKbo5eRMFCtndW71K+YXlEAAAABjZI74+fDcJ4pz11I6xdrMR38fqS6WSZFuUG1KpJhntlZru7EP80/I1Nb2+UgsB4JyPVIxXti97NPe5ut3C6mX</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Script_cleansing_stage_and_load_silver"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{cc613700-8062-41b3-a18a-e96936ecac71}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script_cleansing_stage_and_load_silver"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{257D24EF-2C20-4EF5-9083-AB9ADB94C0FF}"
+          SQLTask:SqlStatementSource="insert into silver.transaksi(&#xA;id_transaksi,&#xA;nomor_akun,&#xA;tanggal_transaksi,&#xA;jumlah,&#xA;channel,&#xA;branch_code&#xA;)&#xA;select&#xA;id_transaksi,&#xA;nomor_akun,&#xA;tanggal_transaksi,&#xA;jumlah,&#xA;channel,&#xA;branch_code&#xA;from( &#xA;select &#xA;transaction_id as id_transaksi,&#xA;case when LEN(account_no) = 6 THEN account_no&#xA;  else substring (account_no, 1, 6)&#xA;  end as nomor_akun,&#xA;FORMAT(CAST(tgl_transaksi AS DATE), 'yyyy-MM-dd') as tanggal_transaksi,&#xA;round(amount, 2) as jumlah,&#xA;TRIM(UPPER(channel))as channel,&#xA;row_number() over (partition by transaction_id order by tgl_transaksi) as flag_last,&#xA;branch_code&#xA;from bronze.transaksi&#xA;where transaction_id IS NOT NULL&#xA;)t&#xA;where flag_last = 1&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\script_truncate_silver"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7aead49d-e201-4fcb-b02d-71cff8ea2454}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="script_truncate_silver"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{257D24EF-2C20-4EF5-9083-AB9ADB94C0FF}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE silver.transaksi;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{9605b998-f3d6-445b-9f68-5bde5fad51d9}"
+      DTS:From="Package\script_truncate_silver"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Script_cleansing_stage_and_load_silver" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Script_cleansing_stage_and_load_silver"
+          TopLeft="191,250.257575757576" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\script_truncate_silver"
+          TopLeft="201.181818181819,121" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="332.840909090909,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87.257575757576"
+              Start="0,0"
+              End="0,79.757575757576">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.757575757576" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

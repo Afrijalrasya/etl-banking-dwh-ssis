@@ -1,0 +1,58 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/4/2025 11:55:15 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OH1MQ57"
+  DTS:CreatorName="DESKTOP-OH1MQ57\ASUS"
+  DTS:DTSID="{34B6623C-25A2-427C-B31A-6C5249EB92F3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.1"
+  DTS:LocaleID="14345"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{D6345DD3-9E38-4590-8644-597EA3AFB2AF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\(G) quick report_transaksi"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2ea5d843-0de1-4c6a-a98c-6d136181e070}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(G) quick report_transaksi"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{93708732-5AF7-4A3E-992A-29DBE41929CA}"
+          SQLTask:SqlStatementSource="--create laporan_transaksi=====================================================================&#xA;IF OBJECT_ID('gold.laporan_transaksi', 'V') IS NOT NULL&#xA;DROP VIEW gold.laporan_transaksi;&#xA;GO&#xA;&#xA;CREATE VIEW gold.laporan_transaksi AS&#xA;&#xA;WITH base_query AS(&#xA;select&#xA;t.id_transaksi,&#xA;t.nomor_akun,&#xA;t.tanggal_transaksi,&#xA;CAST(t.jumlah AS bigint)as jumlah,&#xA;c.id_channel,&#xA;c.nama_channel,&#xA;b.id_branch,&#xA;b.kode_branch&#xA;from gold.fact_transaksi t&#xA;LEFT JOIN gold.dim_branch b&#xA;on b.id_branch = t.id_branch&#xA;LEFT JOIN gold.dim_channel c&#xA;on c.id_channel = t.id_channel&#xA;),&#xA;aggregate_data as(&#xA;SELECT&#xA;*,&#xA;DAY(tanggal_transaksi) as date_day,&#xA;MONTH(tanggal_transaksi) as date_month,&#xA;SUM(jumlah)over(PARTITION BY tanggal_transaksi) as total_cost_transaksi_harian,&#xA;AVG(jumlah)over(PARTITION BY tanggal_transaksi) as avg_transaksi_harian,&#xA;COUNT(id_transaksi) OVER (PARTITION by tanggal_transaksi) as freq_transaksi_harian,&#xA;COUNT(id_transaksi) OVER (partition by nama_channel)as freq_transaksi_by_channel,&#xA;COUNT(id_transaksi) OVER (PARTITION by MONTH(tanggal_transaksi)) as freq_transaksi_bulanan&#xA;FROM base_query&#xA;)&#xA;SELECT&#xA;id_transaksi,&#xA;nomor_akun,&#xA;tanggal_transaksi,&#xA;jumlah,&#xA;id_channel,&#xA;nama_channel,&#xA;id_branch,&#xA;kode_branch,&#xA;total_cost_transaksi_harian,&#xA;avg_transaksi_harian,&#xA;freq_transaksi_harian,&#xA;freq_transaksi_by_channel,&#xA;freq_transaksi_bulanan,&#xA;AVG(freq_transaksi_harian) over(partition by date_day) as avg_freq_transaksi_harian&#xA;FROM aggregate_data" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,67"
+          Id="Package\(G) quick report_transaksi"
+          TopLeft="236,151" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

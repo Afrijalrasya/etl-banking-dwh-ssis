@@ -1,0 +1,880 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/2/2025 12:06:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-OH1MQ57"
+  DTS:CreatorName="DESKTOP-OH1MQ57\ASUS"
+  DTS:DTSID="{5F97D7C3-BF59-4751-8A6F-69D282FA342A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.1"
+  DTS:LocaleID="14345"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{7D7F917C-D2B1-47A4-AD32-5A89C29B7452}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-OH1MQ57]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4A71912F-1AFE-48C2-8654-135CF436DF25}"
+      DTS:ObjectName="DESKTOP-OH1MQ57">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-OH1MQ57;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{4A71912F-1AFE-48C2-8654-135CF436DF25}DESKTOP-OH1MQ57;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{040D8FA9-10DB-4E65-B788-AF208BB29C87}"
+      DTS:ObjectName="DESKTOP-OH1MQ57.transaksi_dwh.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-OH1MQ57;User ID=sa;Initial Catalog=transaksi_dwh;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{040D8FA9-10DB-4E65-B788-AF208BB29C87}DESKTOP-OH1MQ57.transaksi_dwh.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr1Pa0YhFrU2jFVwRKatbrQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA0kZ5mtQJzge2UgIAtXv7W65OydIKf81oRuHnGiv5izgAAAAAOgAAAAAIAACAAAAAwtZYnLABGzWbAq/+JLlvT1W5bVNHBNtMHa0ha5Qq1BiAAAAAiPKm0r+k1a1OohRL/nT9JMBahbjEkufA27B6XtogGdEAAAAB8pdKDwzIJS4AclKEUq/Id4I3ecxHftZZ0U1S4HdwiVM4i0k1bc+w2pckSRejqZLOCKss6KP3iHefjvCU1xLFl</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{70E6D00F-3267-480E-8A15-DEF8864489D8}"
+      DTS:ObjectName="DESKTOP-OH1MQ57.transaksi_dwh.sa 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-OH1MQ57;User ID=sa;Initial Catalog=transaksi_dwh;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{70E6D00F-3267-480E-8A15-DEF8864489D8}DESKTOP-OH1MQ57.transaksi_dwh.sa 1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr1Pa0YhFrU2jFVwRKatbrQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADmzJscVikMQncKxUbjT2T1YMWxqkOHVsiRtfsKZK7JuwAAAAAOgAAAAAIAACAAAABMza2AI50vLa3n6XPrbBSGq4XCI/olzqU8iiywLFYBViAAAADrY21uYcBmAyi6a9HSfO2T7PVjik4D1Y7jGBZPVFb+TEAAAAD4Wr261P9VCwZ2VLurz5pUGx/xtgt5yYQrmFRzTpHCwediVQbXITUPPNyRsptaYZ+Ek7inaxiweXfF5C8Iwuo7</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{321AD1A0-8423-419C-BD9C-F1584D06FBBE}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\MyBI\PROJECT\SSIS-ETL\source\transaksi-harian.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\(B) input data ke stage(bronze)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6FFE89B4-5723-4CEB-BB50-E249F7B469A2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(B) input data ke stage(bronze)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\(B) input data ke stage(bronze)\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input].Columns[transaction_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="transaction_id"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[transaction_id]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input].Columns[channel]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="channel"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[channel]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input].Columns[branch_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="branch_code"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[branch_code]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input].Columns[account_no]"
+                      cachedDataType="r8"
+                      cachedName="account_no"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[account_no]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input].Columns[tgl_transaksi]"
+                      cachedDataType="date"
+                      cachedName="tgl_transaksi"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[tgl_transaksi]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input].Columns[amount]"
+                      cachedDataType="r8"
+                      cachedName="amount"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[transaction_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[transaction_id]"
+                      name="transaction_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[transaction_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[channel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[channel]"
+                      name="channel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[channel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[branch_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[branch_code]"
+                      name="branch_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[branch_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[account_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[account_no]"
+                      name="account_no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[account_no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[tgl_transaksi]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[tgl_transaksi]"
+                      name="tgl_transaksi"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[tgl_transaksi]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[amount]"
+                      name="amount"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[amount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(B) input data ke stage(bronze)\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(B) input data ke stage(bronze)\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[transaction_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[transaction_id]"
+                      length="255"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[transaction_id]"
+                      name="transaction_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[account_no]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[account_no]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[account_no]"
+                      name="account_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[tgl_transaksi]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[tgl_transaksi]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[tgl_transaksi]"
+                      name="tgl_transaksi"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[amount]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[amount]"
+                      name="amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[channel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[channel]"
+                      length="255"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[channel]"
+                      name="channel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[branch_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[branch_code]"
+                      length="255"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].Columns[branch_code]"
+                      name="branch_code"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[transaction_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="transaction_id" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[account_no]"
+                      dataType="r8"
+                      name="account_no" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[tgl_transaksi]"
+                      dataType="date"
+                      name="tgl_transaksi" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[amount]"
+                      dataType="r8"
+                      name="amount" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[channel]"
+                      dataType="wstr"
+                      length="255"
+                      name="channel" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output].ExternalColumns[branch_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="branch_code" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[transaction_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[transaction_id]"
+                      name="transaction_id" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[account_no]"
+                      dataType="r8"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[account_no]"
+                      name="account_no" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[tgl_transaksi]"
+                      dataType="date"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[tgl_transaksi]"
+                      name="tgl_transaksi" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[amount]"
+                      dataType="r8"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[amount]"
+                      name="amount" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[channel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[channel]"
+                      name="channel" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[branch_code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[branch_code]"
+                      name="branch_code" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(B) input data ke stage(bronze)\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[bronze].[transaksi]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-OH1MQ57.transaksi_dwh.sa 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[transaction_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="transaction_id"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[transaction_id]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[transaction_id]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[channel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="channel"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[channel]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[channel]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[branch_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="branch_code"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[branch_code]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[branch_code]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[account_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="account_no"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[account_no]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[account_no]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[tgl_transaksi]"
+                      cachedDataType="dbDate"
+                      cachedName="tgl_transaksi"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tgl_transaksi]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[tgl_transaksi]" />
+                    <inputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[amount]"
+                      cachedDataType="numeric"
+                      cachedName="amount"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      lineageId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output].Columns[amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[transaction_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="transaction_id" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[account_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="account_no" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tgl_transaksi]"
+                      dataType="dbDate"
+                      name="tgl_transaksi" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount]"
+                      dataType="numeric"
+                      name="amount"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[channel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="channel" />
+                    <externalMetadataColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[branch_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="branch_code" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\(B) input data ke stage(bronze).Paths[Data Conversion Output]"
+              endId="Package\(B) input data ke stage(bronze)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\(B) input data ke stage(bronze)\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\(B) input data ke stage(bronze).Paths[Excel Source Output]"
+              endId="Package\(B) input data ke stage(bronze)\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\(B) input data ke stage(bronze)\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\(B) truncate staging table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{41211CF5-F0E3-4DCA-9E8A-32A0B2BF5636}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(B) truncate staging table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70E6D00F-3267-480E-8A15-DEF8864489D8}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE bronze.transaksi;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C7A107D2-E02A-4D58-8A02-F96FE223E763}"
+      DTS:From="Package\(B) truncate staging table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\(B) input data ke stage(bronze)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\(B) input data ke stage(bronze)"
+          TopLeft="90.6060606060607,242.80303030303" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\(B) truncate staging table"
+          TopLeft="107.090909090909,92.090909090909" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="206.848484848485,134.090909090909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,108.712121212121"
+              Start="0,0"
+              End="0,101.212121212121">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,101.212121212121" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\(B) input data ke stage(bronze)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\(B) input data ke stage(bronze)\Excel Source"
+          TopLeft="142.181818181818,63.6363636363636" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\(B) input data ke stage(bronze)\Data Conversion"
+          TopLeft="133.133116883117,152.123376623377" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\(B) input data ke stage(bronze)\OLE DB Destination"
+          TopLeft="137.571428571429,223.428571428571" />
+        <EdgeLayout
+          Id="Package\(B) input data ke stage(bronze).Paths[Excel Source Output]"
+          TopLeft="213.907467532467,105.636363636364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.4870129870134"
+              Start="0,0"
+              End="0,38.9870129870134">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.9870129870134" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(B) input data ke stage(bronze).Paths[Data Conversion Output]"
+          TopLeft="213.633116883117,194.123376623377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.438311688312,29.305194805194"
+              Start="0,0"
+              End="12.438311688312,21.805194805194">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.652597402597" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.652597402597"
+                    Point2="0,14.652597402597"
+                    Point3="4,14.652597402597" />
+                  <mssgle:LineSegment
+                    End="8.43831168831201,14.652597402597" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.43831168831201,14.652597402597"
+                    Point2="12.438311688312,14.652597402597"
+                    Point3="12.438311688312,18.652597402597" />
+                  <mssgle:LineSegment
+                    End="12.438311688312,21.805194805194" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\(B) input data ke stage(bronze)\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\(B) input data ke stage(bronze)\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
