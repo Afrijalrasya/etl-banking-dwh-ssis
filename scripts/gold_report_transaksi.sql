@@ -79,3 +79,4 @@ freq_transaksi_bulanan,
 AVG(freq_transaksi_harian) over(partition by date_day) as avg_freq_transaksi_harian
 
 FROM aggregate_data
+
