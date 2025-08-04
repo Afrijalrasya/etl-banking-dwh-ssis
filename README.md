@@ -27,38 +27,38 @@ Proyek ini mensimulasikan proses ETL end-to-end dan pemodelan data warehouse ska
      rata-rata frekuensi transaksi dll.
 
 ## 📁 Struktur Proyek
-  
-  ├── data_source/
-  │ └── transaksi.xlsx # Sample multi-channel source data
-  │
-  ├── doc/
-  │ ├── FSD/
-  │ │ └── Draft FSD.docx # Functional Specification
-  │ └── TSD/
-  │ ├── TSD.pdf # Technical Spec Document
-  │ └── arsitektur-data.png # Diagram alur data
-  │
-  ├── output/
-  │ ├── dim_branch.xlsx
-  │ ├── dim_channel.xlsx
-  │ └── fact_transaksi.xlsx # Export-an dari Gold layer
-  │
-  ├── scripts/
-  │ ├── init_db.sql # Setup awal database
-  │ ├── ddl_bronze.sql
-  │ ├── ddl_silver.sql
-  │ ├── ddl_gold(views).sql
-  │ ├── gold_report_transaksi.sql # Query pelaporan transaksi
-  │ └── load_silver.sql # Script yang di eksekusi dengan task 'script' pada SSIS
-  │
-  ├── ssis-package/
-  │ ├── load_bronze.dtsx # Load raw dari Excel ke Bronze
-  │ ├── load_silver.dtsx # Transformasi dari Bronze ke Silver
-  │ ├── load_gold.dtsx # Incremental load dari Silver ke Gold
-  │ └── quick_report.dtsx # Export Gold ke Excel
-  │
-  ├── LICENSE
-  └── README.md
+     
+     ├── data_source/
+     │ └── transaksi.xlsx # Sample multi-channel source data
+     │
+     ├── doc/
+     │ ├── FSD/
+     │ │ └── Draft FSD.docx # Functional Specification
+     │ └── TSD/
+     │ ├── TSD.pdf # Technical Spec Document
+     │ └── arsitektur-data.png # Diagram alur data
+     │
+     ├── output/
+     │ ├── dim_branch.xlsx
+     │ ├── dim_channel.xlsx
+     │ └── fact_transaksi.xlsx # Export-an dari Gold layer
+     │
+     ├── scripts/
+     │ ├── init_db.sql # Setup awal database
+     │ ├── ddl_bronze.sql
+     │ ├── ddl_silver.sql
+     │ ├── ddl_gold(views).sql
+     │ ├── gold_report_transaksi.sql # Query pelaporan transaksi
+     │ └── load_silver.sql # Script yang di eksekusi dengan task 'script' pada SSIS
+     │
+     ├── ssis-package/
+     │ ├── load_bronze.dtsx # Load raw dari Excel ke Bronze
+     │ ├── load_silver.dtsx # Transformasi dari Bronze ke Silver
+     │ ├── load_gold.dtsx # Incremental load dari Silver ke Gold
+     │ └── quick_report.dtsx # Export Gold ke Excel
+     │
+     ├── LICENSE
+     └── README.md
 
 
 ## 💾 Teknologi yang Digunakan
