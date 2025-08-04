@@ -1,3 +1,24 @@
+/*
+===============================================================================
+Laporan Transaksi
+===============================================================================
+Tujuan
+    - Laporan ini mengkonsolidasikan metrik dan prilaku pada transaksi.
+
+Sorotan:
+    1. Mengumpulkan bidang-bidang penting seperti nama channel, kode branch.
+    2. Mensegmentasi produk berdasarkan pendapatan untuk mengidentifikasi produk Berkinerja Tinggi, Berkinerja Menengah, atau Berkinerja Rendah.
+    3. Mengumpulkan metrik transaksi:
+       - jumlah transaksi harian
+       - frekuensi transaksi berdasarkan channel
+       - frekuensi transaksi bulanan
+    4. Menghitung KPI yang penting:
+       - rata rata dari jumlah transaksi harian
+       - rata frekuensi transaksi harian 
+
+
+===============================================================================
+*/
 --create laporan_transaksi=====================================================================
 IF OBJECT_ID('gold.laporan_transaksi', 'V') IS NOT NULL
 DROP VIEW gold.laporan_transaksi;
@@ -56,4 +77,5 @@ freq_transaksi_harian,
 freq_transaksi_by_channel,
 freq_transaksi_bulanan,
 AVG(freq_transaksi_harian) over(partition by date_day) as avg_freq_transaksi_harian
+
 FROM aggregate_data
