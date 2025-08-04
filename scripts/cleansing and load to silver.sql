@@ -1,3 +1,18 @@
+/*
+===============================================================================
+Load Silver Layer (Bronze -> Silver)
+===============================================================================
+Tujuan Script:
+ Script ini melakukan proses ETL (Extract, Transform, Load) untuk 
+ mengisi tabel transaksi pada schema 'Silver' dari schema 'Bronze'.
+	Tindakan yang dilakukan:
+		- Memuat data yang ditransformasikan dan dibersihkan dari tabel bronze.transaksi
+		  ke dalam tabel Silver.transaksi .
+
+Penggunaan:
+    jalankan package 'load-silver' pada SSIS untuk mengeksekusi task yang berisi script ini.
+===============================================================================
+*/
 insert into silver.transaksi(
 id_transaksi,
 nomor_akun,
@@ -28,4 +43,5 @@ from bronze.transaksi
 where transaction_id IS NOT NULL
 )t
 where flag_last = 1
+
 
