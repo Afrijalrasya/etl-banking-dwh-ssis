@@ -1,9 +1,11 @@
-use transaksi_dwh
 /*
 DDL Script: membuat table bronze
 ===============================================================================
-Script Purpose:
-
+Tujuan script:
+ Script ini membuat table transaksi pada schema 'bronze' sebagai tempat staging.
+Script ini akan menghapus table jika table nya sudah ada.
+	Gunakan script ini untuk mendefinisikan ulang struktur DDL dari table
+	transaksi pada schema 'bronze'
 ===============================================================================
 */
 
@@ -18,3 +20,4 @@ CREATE TABLE bronze.transaksi (
     channel VARCHAR(20),
     branch_code VARCHAR(10)
 );
+
