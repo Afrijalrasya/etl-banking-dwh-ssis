@@ -28,7 +28,7 @@ This project simulates the end-to-end ETL process and modeling of a small-scale 
 
 
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
      
      ├── data_source/
      │ └── transaksi.xlsx # Sample multi-channel source data
