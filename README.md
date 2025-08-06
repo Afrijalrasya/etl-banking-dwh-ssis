@@ -1,30 +1,32 @@
 # etl-transaksi-banking-domain
-Proyek ini mensimulasikan proses ETL end-to-end dan pemodelan data warehouse skala kecil (data mart)untuk domain perbankan, yang dibangun menggunakan Microsoft SSIS dan SQL Server. Kasus penggunaan dirancang untuk menyelaraskan dengan lingkungan yang melibatkan data keuangan yang teratur.
+This project simulates the end-to-end ETL process and modeling of a small-scale data warehouse (data mart) for the banking domain, built using Microsoft SSIS and SQL Server. The use cases were designed to align with an environment involving regular financial data.
 
 ## 🗂️ Arsitektur Data
 ![Data Architecture](doc/TSD/arsitektur-data.png)
 
 
-## 🧾 Deskripsi Proses ETL
+## 🧾 ETL Process Description
 
 1. **Load Bronze**
-   - Mengambil data dari `transaksi.xlsx` (multi-channel).
-   - Menyimpan ke tabel `bronze_transaksi` tanpa transformasi.
-   - berbasis SSIS Data flow task
+   - Retrieve data from `transactions.xlsx` (multi-channel).
+   - Saves to `bronze_transactions` table without transformation.
+   - SSIS based Data flow task
 
-2. **Transform ke Silver**
-   - Validasi data: pastikan format tanggal, jumlah angka valid.
-   - Normalisasi: semua channel huruf besar, branch ID seragam.
-   - Output ke `silver_transaksi`.
-   - Berbasis Script yang dieksekusi menggunakan 'SSIS SQL execute task'
+2. **Transform to Silver**
+   - Data validation: make sure date format, number of numbers are valid.
+   - Normalize: all channels are uppercase, branch ID is uniform.
+   - Output to `silver_transaction`.
+   - Script-based executed using 'SSIS SQL execute task'.
 
-3. **Load ke Gold**
-   - Membuat `dim_branch`, `dim_channel`, dan `fact_transaksi` via View.
-   - Berbasis Script yang dieksekusi menggunakan 'SSIS SQL execute task'
+3. **Load to Gold**
+   - Create `dim_branch`, `dim_channel`, and `fact_transaction` via View.
+   - Script-based executed using 'SSIS SQL execute task'
      
 4. **Quick Report**
-   - Menghitung KPI dan key metrik eperti jumlah transaksi, frekuensi transaksi,
-     rata-rata frekuensi transaksi dll.
+   - Calculates KPIs and key metrics such as number of transactions, transaction frequency,
+ average transaction frequency etc.
+
+
 
 ## 📁 Struktur Proyek
      
@@ -61,7 +63,7 @@ Proyek ini mensimulasikan proses ETL end-to-end dan pemodelan data warehouse ska
      └── README.md
 
 
-## 💾 Teknologi yang Digunakan
+## 💾 tools
 
 - SQL Server 
 - SSMS (Sql Server Management Studio)
@@ -83,4 +85,4 @@ _ETL Development Enthusiast | Aspiring Data Engineer_
   
 ## 📜 Lisensi
 
-Proyek ini berada di bawah lisensi MIT.
+This project is under the MIT license.
